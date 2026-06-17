@@ -1,0 +1,1556 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flexortho — Bebas Nyeri Pinggang dalam 4 Minggu Tanpa Operasi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   TOKENS
+   ============================================================ */
+:root {
+  --bg:        #0B1220;
+  --navy:      #16324F;
+  --gold:      #D4901A;
+  --gold-bright:#F0A830;
+  --red:       #C0392B;
+  --teal:      #197C7A;
+  --teal-dark: #0F2320;
+  --white:     #F0F4F8;
+  --slate:     #8FA3B1;
+  --muted:     #526D82;
+  --card:      #111D2E;
+
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 20px;
+
+  --max-w: 680px;
+  --px: 20px;
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  width: 100%;
+  border-radius: var(--r-md);
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+.headline-hero {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: clamp(26px, 7vw, 48px);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--white);
+}
+
+.headline-section {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: clamp(20px, 5vw, 30px);
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: var(--white);
+}
+
+.subhead {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: clamp(14px, 3.5vw, 18px);
+  line-height: 1.5;
+  color: var(--slate);
+}
+
+.body-text {
+  font-size: clamp(14px, 3.5vw, 16px);
+  line-height: 1.8;
+  color: #C5D4E0;
+}
+
+.label {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.gold { color: var(--gold); }
+.red  { color: var(--red);  }
+.teal { color: var(--teal); }
+.slate{ color: var(--slate); }
+
+/* ============================================================
+   LAYOUT UTILS
+   ============================================================ */
+.container {
+  width: 100%;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--px);
+}
+
+.section {
+  padding: 64px 0;
+}
+
+.section--dark { background: var(--bg); }
+.section--navy { background: var(--navy); }
+.section--card { background: var(--card); }
+.section--dream { background: var(--teal-dark); }
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn-primary {
+  display: block;
+  width: 100%;
+  background: var(--gold);
+  color: #0B1220;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: clamp(15px, 4vw, 17px);
+  text-align: center;
+  padding: 18px 24px;
+  border-radius: var(--r-sm);
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  animation: pulse-ring 2.5s ease-in-out infinite;
+  position: relative;
+}
+
+.btn-primary:hover {
+  background: var(--gold-bright);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  display: block;
+  width: 100%;
+  background: transparent;
+  color: var(--gold);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  text-align: center;
+  padding: 14px 24px;
+  border-radius: var(--r-sm);
+  border: 1.5px solid var(--gold);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+  background: rgba(212,144,26,0.1);
+}
+
+@keyframes pulse-ring {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212,144,26,0.4); }
+  50%       { box-shadow: 0 0 0 10px rgba(212,144,26,0); }
+}
+
+/* ============================================================
+   STICKY MOBILE CTA
+   ============================================================ */
+.sticky-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: rgba(11,18,32,0.97);
+  border-top: 1px solid rgba(212,144,26,0.3);
+  padding: 12px 20px 20px;
+  display: none;
+  backdrop-filter: blur(8px);
+}
+
+.sticky-cta.visible { display: block; }
+
+.sticky-cta__inner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+.sticky-cta__price {
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.sticky-cta__orig {
+  font-size: 11px;
+  text-decoration: line-through;
+  color: var(--muted);
+  display: block;
+}
+
+.sticky-cta__now {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 18px;
+  color: var(--gold);
+}
+
+.sticky-cta .btn-primary {
+  animation: none;
+  padding: 14px 20px;
+  font-size: 14px;
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://drive.google.com/thumbnail?id=1jboO_cBGLUPHAqLv-oBKxJhdpg6zsacJ&sz=w1200');
+  background-size: cover;
+  background-position: center top;
+  z-index: 0;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(11,18,32,0.25) 0%,
+    rgba(11,18,32,0.35) 40%,
+    rgba(11,18,32,0.88) 70%,
+    rgba(11,18,32,1)    100%
+  );
+  z-index: 1;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  padding: 40px var(--px) 48px;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(192,57,43,0.2);
+  border: 1px solid rgba(192,57,43,0.5);
+  border-radius: 100px;
+  padding: 5px 12px;
+  margin-bottom: 16px;
+}
+
+.hero__eyebrow-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--red);
+  animation: blink 1.4s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.2; }
+}
+
+.hero__eyebrow span {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #F87171;
+}
+
+.hero__headline {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: clamp(28px, 8vw, 52px);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.hero__headline em {
+  font-style: normal;
+  color: var(--gold);
+}
+
+.hero__sub {
+  font-size: clamp(14px, 3.5vw, 17px);
+  line-height: 1.7;
+  color: #B0C4D4;
+  margin-bottom: 28px;
+  max-width: 520px;
+}
+
+.hero__cta-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.hero__cta-note {
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* ============================================================
+   ESCALATION SECTION
+   ============================================================ */
+.escalation__img {
+  margin-bottom: 36px;
+}
+
+.escalation__lead {
+  margin-bottom: 32px;
+}
+
+.escalation__steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 32px;
+}
+
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  opacity: 0;
+  transform: translateX(-16px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.step-item.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.step-item:last-child {
+  border-bottom: none;
+  padding-top: 20px;
+}
+
+.step-num {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  background: var(--card);
+  border: 1.5px solid var(--muted);
+  color: var(--slate);
+  margin-top: 2px;
+}
+
+.step-item.danger .step-num {
+  background: rgba(192,57,43,0.2);
+  border-color: var(--red);
+  color: var(--red);
+}
+
+.step-item.final .step-num {
+  background: rgba(192,57,43,0.9);
+  border-color: var(--red);
+  color: #fff;
+  font-size: 15px;
+}
+
+.step-content__title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--white);
+  margin-bottom: 3px;
+}
+
+.step-item.final .step-content__title {
+  color: #F87171;
+  font-size: 17px;
+}
+
+.step-content__desc {
+  font-size: 13px;
+  color: var(--slate);
+  line-height: 1.6;
+}
+
+.step-arrow {
+  text-align: center;
+  color: var(--red);
+  font-size: 18px;
+  padding: 4px 0;
+  opacity: 0.6;
+}
+
+/* ============================================================
+   WINDOW / URGENCY SECTION
+   ============================================================ */
+.window__img {
+  margin-bottom: 32px;
+}
+
+.window__timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 32px 0;
+}
+
+.timeline-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 16px;
+  border-radius: var(--r-md);
+  background: var(--card);
+  border-left: 3px solid var(--muted);
+}
+
+.timeline-item.t1 { border-left-color: #F59E0B; }
+.timeline-item.t2 { border-left-color: #F97316; }
+.timeline-item.t3 { border-left-color: var(--red); background: rgba(192,57,43,0.08); }
+
+.timeline-label {
+  flex-shrink: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-top: 2px;
+}
+
+.t1 .timeline-label { background: rgba(245,158,11,0.15); color: #F59E0B; }
+.t2 .timeline-label { background: rgba(249,115,22,0.15); color: #F97316; }
+.t3 .timeline-label { background: rgba(192,57,43,0.2);  color: #F87171; }
+
+.timeline-text {
+  font-size: 14px;
+  line-height: 1.65;
+  color: #C5D4E0;
+}
+
+/* ============================================================
+   SOCIAL PROOF
+   ============================================================ */
+.testimonial-card {
+  background: var(--card);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: var(--r-lg);
+  padding: 24px;
+  margin-top: 24px;
+}
+
+.testimonial-card + .testimonial-card {
+  margin-top: 16px;
+}
+
+.testimonial-card__quote {
+  font-size: 14px;
+  line-height: 1.75;
+  color: #C5D4E0;
+  font-style: italic;
+  margin-bottom: 16px;
+}
+
+.testimonial-card__author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.testimonial-card__avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+.testimonial-card__name {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--white);
+}
+
+.testimonial-card__meta {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* ============================================================
+   HOW IT WORKS
+   ============================================================ */
+.how-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 32px;
+}
+
+.how-step {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.how-step__num {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(212,144,26,0.15);
+  border: 1.5px solid rgba(212,144,26,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 16px;
+  color: var(--gold);
+  margin-top: 2px;
+}
+
+.how-step__title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+
+.how-step__desc {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--slate);
+}
+
+/* ============================================================
+   OFFER / WHAT YOU GET
+   ============================================================ */
+.offer__mockup {
+  margin-bottom: 36px;
+}
+
+.offer-items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.offer-item {
+  background: var(--card);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: var(--r-md);
+  padding: 20px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.offer-item__icon {
+  font-size: 24px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.offer-item__title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+
+.offer-item__badge {
+  display: inline-block;
+  background: rgba(212,144,26,0.15);
+  color: var(--gold);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
+
+.offer-item__desc {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--slate);
+}
+
+/* ============================================================
+   PRICING
+   ============================================================ */
+.pricing-box {
+  background: var(--card);
+  border: 1px solid rgba(212,144,26,0.25);
+  border-radius: var(--r-lg);
+  padding: 32px 24px;
+  text-align: center;
+  margin-top: 24px;
+}
+
+.pricing-context {
+  font-size: 13px;
+  color: var(--slate);
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+
+.pricing-context strong {
+  color: var(--white);
+}
+
+.price-compare {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 28px;
+}
+
+.price-orig {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--muted);
+  position: relative;
+  display: inline-block;
+}
+
+.price-orig::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 100%;
+  top: 50%;
+  height: 2px;
+  background: var(--red);
+  transition: right 0.5s ease 0.3s;
+}
+
+.price-orig.struck::after {
+  right: 0;
+}
+
+.price-now {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: clamp(40px, 12vw, 56px);
+  color: var(--gold);
+  line-height: 1;
+}
+
+.price-note {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.risk-reversal {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 20px;
+  text-align: left;
+}
+
+.risk-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: #B0C4D4;
+}
+
+.risk-item::before {
+  content: '✓';
+  color: var(--teal);
+  font-weight: 700;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   FOR WHO
+   ============================================================ */
+.for-who__lists {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 28px;
+}
+
+.for-who__block {
+  border-radius: var(--r-md);
+  padding: 20px;
+}
+
+.for-who__block.yes {
+  background: rgba(25,124,122,0.1);
+  border: 1px solid rgba(25,124,122,0.3);
+}
+
+.for-who__block.no {
+  background: rgba(192,57,43,0.08);
+  border: 1px solid rgba(192,57,43,0.25);
+}
+
+.for-who__block-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.for-who__block.yes .for-who__block-title { color: var(--teal); }
+.for-who__block.no  .for-who__block-title { color: #F87171; }
+
+.for-who__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.for-who__list li {
+  display: flex;
+  gap: 10px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #C5D4E0;
+  align-items: flex-start;
+}
+
+.for-who__list li::before {
+  flex-shrink: 0;
+  margin-top: 2px;
+  font-size: 14px;
+}
+
+.for-who__block.yes .for-who__list li::before { content: '✓'; color: var(--teal); font-weight: 700; }
+.for-who__block.no  .for-who__list li::before { content: '✕'; color: #F87171; font-weight: 700; }
+
+/* ============================================================
+   CLOSING
+   ============================================================ */
+.closing__img {
+  margin-bottom: 32px;
+  border: 1px solid rgba(25,124,122,0.2);
+}
+
+.closing__headline {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: clamp(22px, 6vw, 36px);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+/* ============================================================
+   DIVIDER
+   ============================================================ */
+.divider {
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  margin: 0;
+}
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   RESPONSIVE — DESKTOP
+   ============================================================ */
+@media (min-width: 640px) {
+  .sticky-cta { display: none !important; }
+
+  .hero__content {
+    padding: 60px 40px 72px;
+  }
+
+  .section {
+    padding: 80px 0;
+  }
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     STICKY MOBILE CTA (shows after hero)
+     ============================================================ -->
+<div class="sticky-cta" id="stickyCta">
+  <div class="sticky-cta__inner">
+    <div class="sticky-cta__price">
+      <span class="sticky-cta__orig">Rp 297.000</span>
+      <span class="sticky-cta__now">Rp 127.000</span>
+    </div>
+    <a href="#pricing" class="btn-primary" style="animation:none;">
+      Tangani Sekarang →
+    </a>
+  </div>
+</div>
+
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero">
+  <div class="hero__bg"></div>
+  <div class="hero__overlay"></div>
+  <div class="hero__content">
+
+    <div class="hero__eyebrow">
+      <span class="hero__eyebrow-dot"></span>
+      <span>Peringatan Penting</span>
+    </div>
+
+    <h1 class="hero__headline">
+      Nyeri Pinggang yang<br>
+      Kamu Anggap Biasa Itu —<br>
+      <em>Bisa Berujung<br>Kelumpuhan Permanen</em>
+    </h1>
+
+    <p class="hero__sub">
+      Syaraf kejepit tidak menunggu kamu siap. Setiap hari yang dibiarkan,
+      tekanannya makin dalam — dan ada titik di mana kerusakannya
+      tidak bisa dibalik lagi. Tapi selama kamu membaca ini,
+      <strong style="color:var(--white)">masih ada waktu.</strong>
+    </p>
+
+    <div class="hero__cta-wrap">
+      <a href="#pricing" class="btn-primary">
+        Tangani Sekarang Sebelum Terlambat →
+      </a>
+      <p class="hero__cta-note">Cukup 7 menit sehari · Mulai dari rumah · Tanpa operasi</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 1 — ESKALASI PROGRESIF
+     ============================================================ -->
+<section class="section section--card">
+  <div class="container">
+
+    <div class="label reveal">Kenali tahapannya</div>
+    <h2 class="headline-section reveal" style="margin-top:10px;margin-bottom:20px;">
+      Begini Cara Nyeri Pinggang Berubah Jadi Kelumpuhan —
+      dan Kebanyakan Orang Tidak Sadar Sampai Sudah Terlambat
+    </h2>
+
+    <div class="escalation__img reveal">
+      <img
+        src="https://drive.google.com/thumbnail?id=1s8Z-QARlC3COY-qTIJEXaSS5dQ0REky4&sz=w1200"
+        alt="Ilustrasi nyeri pinggang yang dibiarkan"
+        loading="lazy"
+      >
+    </div>
+
+    <p class="body-text reveal" style="margin-bottom:28px;">
+      Awalnya cuma pinggang yang ngilu kalau terlalu lama duduk. Kamu pikir itu kelelahan
+      biasa. Kamu istirahat, membaik sebentar, lalu balik lagi. Tapi ini yang tidak banyak
+      orang tahu: <strong style="color:var(--white)">nyeri pinggang bukan musibahnya — nyeri
+      itu sinyal bahwa syarafmu sedang dalam tekanan.</strong> Dan tekanan yang dibiarkan
+      tidak berhenti sendiri. Ia berkembang.
+    </p>
+
+    <div class="escalation__steps">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <div class="step-content__title">Pinggang ngilu</div>
+          <div class="step-content__desc">Datang dan pergi. Kamu masih bisa menjalani hari normal. Kebanyakan orang mengabaikan ini.</div>
+        </div>
+      </div>
+
+      <div class="step-arrow">↓</div>
+
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <div class="step-content__title">Menjalar ke bokong</div>
+          <div class="step-content__desc">Mulai ada rasa tertarik atau tegang di bokong satu sisi. Syaraf sudah mulai tertekan.</div>
+        </div>
+      </div>
+
+      <div class="step-arrow">↓</div>
+
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <div class="step-content__title">Paha kesemutan</div>
+          <div class="step-content__desc">Nyeri mulai turun. Kadang seperti aliran listrik kecil. Sudah banyak yang mencoba mengabaikan ini.</div>
+        </div>
+      </div>
+
+      <div class="step-arrow">↓</div>
+
+      <div class="step-item danger">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <div class="step-content__title">Betis dan kaki kebas</div>
+          <div class="step-content__desc">Di titik ini, syarafmu sudah dalam tekanan yang signifikan. Rasa kebas berarti syaraf kesulitan menghantarkan sinyal dengan benar.</div>
+        </div>
+      </div>
+
+      <div class="step-arrow">↓</div>
+
+      <div class="step-item final">
+        <div class="step-num">⚠</div>
+        <div class="step-content">
+          <div class="step-content__title">Kerusakan permanen</div>
+          <div class="step-content__desc">Syaraf yang terlalu lama terjepit bisa mengalami kerusakan yang tidak bisa dipulihkan. Bukan sekadar nyeri — tapi kehilangan fungsi. Permanen.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal" style="background:rgba(192,57,43,0.1);border:1px solid rgba(192,57,43,0.35);border-radius:var(--r-md);padding:16px 20px;margin-top:12px;">
+      <p style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;color:#F87171;margin-bottom:6px;">
+        Kamu di tahap berapa sekarang?
+      </p>
+      <p style="font-size:13px;color:var(--slate);line-height:1.65;">
+        Semakin awal kamu menanganinya, semakin besar ruang pemulihan yang tersedia.
+        Setiap tahap yang dibiarkan, ruang itu menyempit.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============================================================
+     SECTION 2 — WINDOW CLOSING
+     ============================================================ -->
+<section class="section section--dark">
+  <div class="container">
+
+    <div class="label reveal">Jendela waktu</div>
+    <h2 class="headline-section reveal" style="margin-top:10px;margin-bottom:20px;">
+      Ada Jendela Waktu untuk Pulih Tanpa Operasi —
+      dan Jendela Itu Tidak Terbuka Selamanya
+    </h2>
+
+    <div class="window__img reveal">
+      <img
+        src="https://drive.google.com/thumbnail?id=1TqJi2qC0yFmZWGItTPJoZJxrdE9hUkMw&sz=w1200"
+        alt="Ilustrasi waktu yang terus berjalan"
+        loading="lazy"
+      >
+    </div>
+
+    <p class="body-text reveal" style="margin-bottom:8px;">
+      Ini yang harus kamu pahami tentang syaraf kejepit:
+    </p>
+
+    <div class="window__timeline reveal">
+      <div class="timeline-item t1">
+        <span class="timeline-label">Sekarang</span>
+        <p class="timeline-text">Syaraf mulai tertekan, nyeri mulai muncul. Di fase ini, tubuh masih punya kapasitas pemulihan yang besar. Gerakan yang tepat bisa mengurangi tekanan secara signifikan.</p>
+      </div>
+      <div class="timeline-item t2">
+        <span class="timeline-label">3 Bulan</span>
+        <p class="timeline-text">Tekanan makin dalam. Disc yang bergeser semakin sulit kembali sendiri. Otot-otot yang menstabilkan tulang belakang makin melemah. Nyeri makin sering, makin menjalar jauh.</p>
+      </div>
+      <div class="timeline-item t3">
+        <span class="timeline-label">6 Bulan+</span>
+        <p class="timeline-text">Di titik ini, kerusakan syaraf bisa sudah cukup dalam sehingga satu-satunya pilihan yang tersisa adalah operasi — dengan semua risikonya.</p>
+      </div>
+    </div>
+
+    <p class="body-text reveal">
+      Bukan untuk menakut-nakuti. Ini cara kerja tubuh yang sesungguhnya.
+      Pertanyaannya bukan <em>apakah</em> kamu perlu bertindak.
+      Pertanyaannya adalah <strong style="color:var(--white)"><em>kapan</em></strong> —
+      dan seberapa jauh kondisimu sudah berjalan sebelum kamu mulai.
+    </p>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============================================================
+     SECTION 3 — SOCIAL PROOF #1
+     ============================================================ -->
+<section class="section section--card">
+  <div class="container">
+
+    <div class="label reveal">Mereka hampir terlambat</div>
+    <h2 class="headline-section reveal" style="margin-top:10px;margin-bottom:8px;">
+      Mereka Hampir Terlambat. Untung Tidak Jadi.
+    </h2>
+    <p class="subhead reveal" style="margin-bottom:24px;">
+      Bukan keajaiban — mereka hanya bertindak sebelum jendelanya tertutup.
+    </p>
+
+    <div class="testimonial-card reveal">
+      <p class="testimonial-card__quote">
+        "Nyeri saya sudah 7 bulan, kaki kiri mulai kebas. Dokter sudah bilang kalau
+        tidak ada perbaikan dalam sebulan, operasi jadi opsi utama. Saya tidak langsung
+        setuju. Coba dulu pendekatan yang terstruktur — bukan gerakan acak dari YouTube.
+        Tiga minggu kemudian, rasa kebas di kaki berkurang. Lima minggu kemudian, dokter
+        yang sama bilang perkembangannya positif."
+      </p>
+      <div class="testimonial-card__author">
+        <div class="testimonial-card__avatar">A</div>
+        <div>
+          <div class="testimonial-card__name">Pak Arief, 54 tahun</div>
+          <div class="testimonial-card__meta">Wiraswasta · Semarang</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card reveal">
+      <p class="testimonial-card__quote">
+        "5 bulan tidak bisa berdiri lebih dari 10 menit. Sudah diurut, sudah minum obat.
+        Hari ketiga setelah mulai program — untuk pertama kalinya saya bangun tidur tanpa
+        rasa tegang yang biasanya langsung menyambut di pinggang. Minggu keempat, bisa
+        berdiri mengajar 30 menit. Yang saya sesali: tidak mulai lebih awal."
+      </p>
+      <div class="testimonial-card__author">
+        <div class="testimonial-card__avatar">W</div>
+        <div>
+          <div class="testimonial-card__name">Bu Wulan, 49 tahun</div>
+          <div class="testimonial-card__meta">Guru · Yogyakarta</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============================================================
+     SECTION 4 — SURGERY PIVOT (text only)
+     ============================================================ -->
+<section class="section section--dark">
+  <div class="container">
+
+    <div class="label reveal">Sebelum kamu setuju</div>
+    <h2 class="headline-section reveal" style="margin-top:10px;margin-bottom:20px;">
+      Divonis Harus Operasi? Cek Dulu Fakta Ini Sebelum Kamu Setuju
+    </h2>
+
+    <div class="reveal" style="background:rgba(25,124,122,0.1);border:1px solid rgba(25,124,122,0.3);border-radius:var(--r-md);padding:20px 24px;margin-bottom:24px;text-align:center;">
+      <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(36px,10vw,52px);color:var(--teal);line-height:1;">90%</div>
+      <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;color:var(--white);margin-top:6px;">kasus syaraf kejepit</div>
+      <div style="font-size:13px;color:var(--slate);margin-top:4px;">masih bisa pulih tanpa operasi — dengan syarat: ditangani dengan pendekatan yang benar, dan belum terlalu terlambat.</div>
+    </div>
+
+    <p class="body-text reveal" style="margin-bottom:16px;">
+      Operasi tulang belakang bukan tanpa risiko. Infeksi pasca operasi, kerusakan syaraf
+      akibat prosedur, pemulihan yang panjang, kemungkinan kondisi kambuh beberapa tahun
+      kemudian — semua itu adalah risiko nyata yang perlu ditimbang.
+    </p>
+
+    <p class="body-text reveal" style="margin-bottom:16px;">
+      Itu bukan berarti operasi selalu salah. Ada kondisi yang memang butuh operasi.
+      Tapi kalau kamu belum mencoba pendekatan terstruktur yang benar —
+      <strong style="color:var(--white)">kamu belum tahu apakah kamu termasuk 90% yang tidak perlu operasi itu.</strong>
+    </p>
+
+    <p class="body-text reveal">
+      Yang selama ini membuat orang berpikir "sudah tidak ada jalan lain" bukan karena
+      kondisinya sudah mentok. Tapi karena pendekatan yang mereka coba tidak pernah
+      mengikuti urutan yang benar.
+    </p>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============================================================
+     SECTION 5 — HOW IT WORKS
+     ============================================================ -->
+<section class="section section--card">
+  <div class="container">
+
+    <div class="label reveal">Cara kerjanya</div>
+    <h2 class="headline-section reveal" style="margin-top:10px;margin-bottom:8px;">
+      Sistem 5 Fase yang Mengikuti Logika Tubuh —
+      Bukan Gerakan Acak yang Bisa Memperparah Kondisi
+    </h2>
+    <p class="subhead reveal" style="margin-bottom:8px;">
+      Memberikan gerakan penguatan di hari-hari pertama saat kondisi masih akut bisa memperparah
+      tekanan pada syaraf. Tapi berdiam total juga salah. Yang dibutuhkan adalah urutan yang benar.
+    </p>
+
+    <div class="how-steps reveal">
+      <div class="how-step">
+        <div class="how-step__num">1</div>
+        <div>
+          <div class="how-step__title">Tentukan posisimu sekarang</div>
+          <div class="how-step__desc">Tes mandiri di Bab 2 menentukan kamu mulai dari fase mana — bukan tebak-tebakan. Ada fase Darurat, Stabilisasi, Pemulihan, Penguatan, dan Bebas.</div>
+        </div>
+      </div>
+
+      <div class="how-step">
+        <div class="how-step__num">2</div>
+        <div>
+          <div class="how-step__title">7 menit sehari sesuai fasenya</div>
+          <div class="how-step__desc">Tiap fase punya rangkaian gerakan yang spesifik untuk kondisi tubuh di fase tersebut. Bukan satu set gerakan untuk semua kondisi.</div>
+        </div>
+      </div>
+
+      <div class="how-step">
+        <div class="how-step__num">3</div>
+        <div>
+          <div class="how-step__title">Pantau dengan tracker yang sudah disiapkan</div>
+          <div class="how-step__desc">Recovery Toolkit yang disertakan punya tracker harian dan mingguan — bukan sekadar "rasanya lebih baik atau tidak", tapi data konkret yang bisa kamu ukur.</div>
+        </div>
+      </div>
+
+      <div class="how-step">
+        <div class="how-step__num">4</div>
+        <div>
+          <div class="how-step__title">Pertahankan dengan protokol harian</div>
+          <div class="how-step__desc">Setelah 4 minggu, kamu punya rutinitas pemeliharaan, panduan aktivitas sehari-hari, dan emergency reset plan kalau gejala tiba-tiba muncul kembali.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal" style="background:rgba(212,144,26,0.08);border:1px solid rgba(212,144,26,0.2);border-radius:var(--r-md);padding:16px 20px;margin-top:24px;text-align:center;">
+      <p style="font-size:13px;color:var(--slate);">Sudah banyak yang merasakan perubahan sejak</p>
+      <p style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:18px;color:var(--gold);margin-top:4px;">Hari ke-3 program dimulai</p>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============================================================
+     SECTION 6 — SOCIAL PROOF #2
+     ============================================================ -->
+<section class="section section--dark">
+  <div class="container">
+
+    <div class="label reveal">Yang paling sering dikatakan</div>
+    <h2 class="headline-section reveal" style="margin-top:10px;margin-bottom:8px;">
+      Setelah 4 Minggu: "Kenapa Saya Tidak Coba Ini Lebih Awal"
+    </h2>
+    <p class="body-text reveal" style="margin-bottom:24px;">
+      Bukan karena programnya ajaib. Tapi karena untuk pertama kalinya,
+      mereka punya sistem yang masuk akal — yang bisa dijelaskan, bisa diikuti,
+      dan hasilnya bisa diukur sendiri.
+    </p>
+
+    <div class="testimonial-card reveal">
+      <p class="testimonial-card__quote">
+        "Sudah 3 tahun nyeri, sudah hampir pasrah. Setelah 4 minggu, saya bisa jalan
+        ke warung depan rumah tanpa berhenti setengah jalan. Hal yang sudah tidak bisa
+        saya lakukan bertahun-tahun."
+      </p>
+      <div class="testimonial-card__author">
+        <div class="testimonial-card__avatar">H</div>
+        <div>
+          <div class="testimonial-card__name">Pak Hendra, 55 tahun</div>
+          <div class="testimonial-card__meta">Pensiunan Guru · Bandung</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card reveal">
+      <p class="testimonial-card__quote">
+        "8 jam duduk sehari adalah musuh utama saya. Setelah menjalankan protokol harian,
+        saya bisa kerja tanpa alarm nyeri yang selalu muncul di jam ke-2. Itu sudah cukup
+        mengubah banyak hal."
+      </p>
+      <div class="testimonial-card__author">
+        <div class="testimonial-card__avatar">S</div>
+        <div>
+          <div class="testimonial-card__name">Bu Sari, 43 tahun</div>
+          <div class="testimonial-card__meta">Bekerja dari rumah · Jakarta</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============================================================
+     SECTION 7 — WHAT YOU GET
+     ============================================================ -->
+<section class="section section--card">
+  <div class="container">
+
+    <div class="label reveal">Yang kamu dapatkan</div>
+    <h2 class="headline-section reveal" style="margin-top:10px;margin-bottom:20px;">
+      Bukan Cuma Ebook — Tiga PDF yang Bekerja Bersama dari Fase Paling Darurat sampai Pencegahan Seumur Hidup
+    </h2>
+
+    <div class="offer__mockup reveal">
+      <img
+        src="https://drive.google.com/thumbnail?id=18APuYosrLSIJlxcTJbHFW1DWW4l6CCI8&sz=w1200"
+        alt="Mockup 3 PDF Flexortho"
+        loading="lazy"
+      >
+    </div>
+
+    <div class="offer-items">
+
+      <div class="offer-item reveal">
+        <div class="offer-item__icon">📗</div>
+        <div>
+          <div class="offer-item__badge">Program Utama</div>
+          <div class="offer-item__title">Flexortho — 12 Bab, 79 Halaman</div>
+          <div class="offer-item__desc">Panduan lengkap sistem 5 fase: dari memahami apa yang sebenarnya terjadi di syarafmu, tes mandiri untuk menentukan kamu ada di tahap mana, sampai menjalankan setiap fase dengan gerakan yang tepat di waktu yang tepat. Termasuk panduan nutrisi anti-inflamasi dan protokol pencegahan kambuh.</div>
+        </div>
+      </div>
+
+      <div class="offer-item reveal">
+        <div class="offer-item__icon">📘</div>
+        <div>
+          <div class="offer-item__badge">Bonus 1 — Recovery Toolkit</div>
+          <div class="offer-item__title">Workbook Tracker 8 Bagian</div>
+          <div class="offer-item__desc">Peta lokasi nyeri, tes kondisi awal, checklist tanda bahaya, phase finder, tracker harian & mingguan, tes sebelum-sesudah, dan rencana pemeliharaan pribadimu. Bukan form kosong — referensi siap pakai yang tinggal kamu ikuti.</div>
+        </div>
+      </div>
+
+      <div class="offer-item reveal">
+        <div class="offer-item__icon">📙</div>
+        <div>
+          <div class="offer-item__badge">Bonus 2 — Daily Living Protocol</div>
+          <div class="offer-item__title">Cheat Sheet Harian 9 Bagian</div>
+          <div class="offer-item__desc">Posisi tidur yang aman, cara duduk-berdiri-membungkuk yang benar, sistem aktivitas Merah-Kuning-Hijau, panduan nutrisi, tracker hidrasi, sampai Emergency Reset Plan kalau gejala tiba-tiba kambuh.</div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============================================================
+     SECTION 8 — PRICING
+     ============================================================ -->
+<section class="section section--navy" id="pricing">
+  <div class="container">
+
+    <div class="label reveal" style="text-align:center;">Ambil sekarang</div>
+    <h2 class="headline-section reveal" style="margin-top:10px;margin-bottom:8px;text-align:center;">
+      Masih Ada Waktu. Tapi Jendela Ini Tidak Terbuka Selamanya.
+    </h2>
+
+    <div class="pricing-box reveal">
+
+      <p class="pricing-context">
+        Fisioterapi rata-rata <strong>Rp 150.000–300.000 per sesi</strong>, minimal 6–12 sesi.
+        Itu Rp 900.000 sampai Rp 3.600.000 — belum ongkos perjalanan dan waktu.
+        Flexortho memberikan sistem yang sama terstrukturnya, untuk dijalankan sendiri,
+        dari rumah, 7 menit sehari.
+      </p>
+
+      <div class="price-compare">
+        <span class="price-orig" id="priceOrig">Rp 297.000</span>
+        <span class="price-now">Rp 127.000</span>
+        <span class="price-note">Harga ini bisa berubah kapan saja</span>
+      </div>
+
+      <a href="#" class="btn-primary" style="margin-bottom:16px;">
+        Ya, Saya Mau Tangani Ini Sekarang →
+      </a>
+
+      <div class="risk-reversal">
+        <div class="risk-item">Akses seumur hidup ke 3 PDF</div>
+        <div class="risk-item">Download langsung setelah pembayaran</div>
+        <div class="risk-item">Bisa dibuka dari HP, tablet, atau laptop — kapanpun</div>
+        <div class="risk-item">Tanpa biaya bulanan, tanpa langganan</div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============================================================
+     SECTION 9 — FOR WHO
+     ============================================================ -->
+<section class="section section--dark">
+  <div class="container">
+
+    <div class="label reveal">Ini untuk siapa</div>
+    <h2 class="headline-section reveal" style="margin-top:10px;margin-bottom:20px;">
+      Ini Tepat Untukmu Kalau Kondisinya Belum Terlambat
+    </h2>
+
+    <div class="for-who__lists">
+      <div class="for-who__block yes reveal">
+        <div class="for-who__block-title">✓ Ini untuk kamu kalau...</div>
+        <ul class="for-who__list">
+          <li>Nyeri pinggang sudah lebih dari beberapa hari dan tidak kunjung tuntas</li>
+          <li>Sudah ada penjalaran ke bokong, paha, atau kaki</li>
+          <li>Sudah coba pijat atau obat tapi kondisi terus balik lagi</li>
+          <li>Baru dapat diagnosis syaraf kejepit dan ingin tahu apakah ada jalan lain sebelum setuju operasi</li>
+          <li>Mau pulih tapi tidak punya waktu untuk pergi ke klinik setiap minggu</li>
+        </ul>
+      </div>
+
+      <div class="for-who__block no reveal">
+        <div class="for-who__block-title">✕ Hentikan dan ke dokter kalau...</div>
+        <ul class="for-who__list">
+          <li>Ada kelemahan mendadak di kaki — kaki betul-betul susah digerakkan</li>
+          <li>Kehilangan kontrol buang air kecil atau besar</li>
+          <li>Kebas di area selangkangan atau perineum</li>
+          <li>Kondisi ini perlu evaluasi medis segera — bukan program mandiri</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============================================================
+     SECTION 10 — CLOSING CTA
+     ============================================================ -->
+<section class="section section--dream">
+  <div class="container">
+
+    <div class="closing__img reveal">
+      <img
+        src="https://drive.google.com/thumbnail?id=1dXQQWFQHqXRnTncgxMoblqedDUGZMcyr&sz=w1200"
+        alt="Berjalan bebas tanpa nyeri"
+        loading="lazy"
+      >
+    </div>
+
+    <h2 class="closing__headline reveal">
+      Nyeri Ini Tidak Akan Hilang Sendiri. Dan Semakin Lama Dibiarkan,
+      <span style="color:var(--gold)">Semakin Sempit Pilihanmu.</span>
+    </h2>
+
+    <p class="body-text reveal" style="margin:16px 0 24px;">
+      Kamu sudah tahu kondisi ini tidak bisa diabaikan terus. Kamu sudah tahu bahwa setiap
+      hari yang berlalu tanpa penanganan yang tepat, tekanan pada syaraf itu makin dalam.
+      Yang belum kamu coba adalah pendekatan yang mengikuti urutan yang benar —
+      bukan gerakan acak, bukan istirahat total, bukan menunggu sampai lebih parah baru ke dokter.
+    </p>
+
+    <p style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(16px,4.5vw,20px);color:var(--white);margin-bottom:28px;line-height:1.4;" class="reveal">
+      Rp 127.000. 7 menit sehari. Mulai hari ini.<br>
+      <span style="color:var(--gold);">Sebelum jendelanya tertutup.</span>
+    </p>
+
+    <div style="display:flex;flex-direction:column;gap:10px;" class="reveal">
+      <a href="#pricing" class="btn-primary">
+        Ya, Saya Mau Mulai Bebas Nyeri Sekarang →
+      </a>
+
+      <div style="text-align:center;padding:12px 0;">
+        <div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;">
+          <span style="font-size:12px;color:var(--muted);">✓ Akses seumur hidup</span>
+          <span style="font-size:12px;color:var(--muted);">✓ Download langsung</span>
+          <span style="font-size:12px;color:var(--muted);">✓ Tanpa biaya bulanan</span>
+        </div>
+      </div>
+
+      <!-- Social proof #3 — mini quote di bawah closing CTA -->
+      <div style="background:rgba(25,124,122,0.15);border:1px solid rgba(25,124,122,0.25);border-radius:var(--r-md);padding:16px 20px;margin-top:8px;">
+        <p style="font-size:13px;color:#B0D4D3;font-style:italic;line-height:1.65;">
+          "Dari tidak bisa berdiri 10 menit, ke bisa mengajar 30 menit berdiri —
+          dalam 4 minggu. Sistem ini bekerja kalau kamu ikuti urutannya."
+        </p>
+        <p style="font-size:12px;color:var(--teal);font-weight:700;margin-top:10px;">
+          Bu Wulan, 49 tahun · Guru · Yogyakarta
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer style="background:#070E1A;padding:32px 20px;text-align:center;">
+  <p style="font-size:11px;color:var(--muted);line-height:1.7;max-width:560px;margin:0 auto;">
+    Konten dalam produk ini bersifat edukatif dan tidak menggantikan saran, diagnosis,
+    atau penanganan medis dari tenaga kesehatan berlisensi. Selalu konsultasikan kondisimu
+    dengan dokter atau fisioterapis, terutama jika ada tanda bahaya seperti yang disebutkan
+    di atas. Hasil individual dapat bervariasi.
+  </p>
+  <p style="font-size:11px;color:#3D5166;margin-top:16px;">
+    © 2025 Flexortho · Rewin Digital Kreatif
+  </p>
+</footer>
+
+
+<!-- ============================================================
+     SCRIPTS
+     ============================================================ -->
+<script>
+/* --- Scroll Reveal --- */
+const revealEls = document.querySelectorAll('.reveal, .step-item');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+revealEls.forEach(el => revealObserver.observe(el));
+
+/* --- Sequential step reveal delay --- */
+document.querySelectorAll('.step-item').forEach((el, i) => {
+  el.style.transitionDelay = (i * 0.12) + 's';
+});
+
+/* --- Animated Strikethrough on price --- */
+const priceOrig = document.getElementById('priceOrig');
+if (priceOrig) {
+  const priceObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        setTimeout(() => priceOrig.classList.add('struck'), 400);
+        priceObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  priceObserver.observe(priceOrig);
+}
+
+/* --- Sticky Mobile CTA --- */
+const hero = document.querySelector('.hero');
+const pricing = document.getElementById('pricing');
+const stickyCta = document.getElementById('stickyCta');
+
+if (stickyCta && hero && pricing) {
+  const stickyObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) {
+        stickyCta.classList.add('visible');
+      } else {
+        stickyCta.classList.remove('visible');
+      }
+    });
+  }, { threshold: 0 });
+
+  const pricingObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        stickyCta.classList.remove('visible');
+      }
+    });
+  }, { threshold: 0.3 });
+
+  stickyObserver.observe(hero);
+  pricingObserver.observe(pricing);
+
+  /* Only show on mobile */
+  const checkMobile = () => {
+    if (window.innerWidth >= 640) {
+      stickyCta.style.display = 'none';
+    }
+  };
+  checkMobile();
+  window.addEventListener('resize', checkMobile);
+}
+</script>
+
+</body>
+</html>
